@@ -1,2 +1,2 @@
-CREATE SCHEMA pizza_runner;
-SET search_path = pizza_runner;
+CREATE SCHEMA bjj_tournament;
+SET search_path = bjj_tournament;
