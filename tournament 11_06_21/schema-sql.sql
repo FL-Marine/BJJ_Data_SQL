@@ -11,6 +11,6 @@ CREATE TABLE identifiers (
  );
  
  INSERT INTO identifiers
- 	("match_id", "move_id",  "tournament_date", "opponent_name", "weight_class",  "match_style")
+ 	("match_id", "move_id",  "tournament_date", "weight_class",  "match_style")
  VALUES
- ('1', '1', '2021-11-06', 'daniel_canizales', 'cruiserweight', 'gi'), 
+ ('1', '1', '2021-11-06', 'cruiserweight', 'gi'), 
