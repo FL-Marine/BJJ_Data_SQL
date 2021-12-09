@@ -5,7 +5,6 @@ CREATE TABLE identifiers (
   "match_id" INTEGER,
   "move_id" INTEGER,
   "tournament_date" DATE,
-  "opponent_name" VARCHAR(50),
   "weight_class" VARCHAR(50),
   "match_style" VARCHAR(50)
  );
