@@ -20,7 +20,7 @@ CREATE TABLE match_style (
 INSERT INTO  match_style
  	("match_style")
 VALUES
-  	('gi'),
+ 	('gi'),
     ('nogi');
     
 CREATE TABLE moves (
