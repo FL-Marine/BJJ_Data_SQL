@@ -35,7 +35,7 @@ VALUES
      ('2', 'single_leg'),
      ('3', 'double_leg'),
      ('4', 'arm_drag'),
-   ('5', 'trip'),
+    ('5', 'trip'),
      ('6', 'lateral_throw'),
      ('7', 'guard'),
      ('8', 'half_guard'),
