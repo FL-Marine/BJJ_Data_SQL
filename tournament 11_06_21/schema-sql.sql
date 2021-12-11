@@ -35,22 +35,25 @@ VALUES
      ('2', 'single_leg'),
      ('3', 'double_leg'),
      ('4', 'arm_drag'),
-  	  ('5', 'trip'),
+  	 ('5', 'trip'),
      ('6', 'lateral_throw'),
      ('7', 'guard'),
-     ('8',	'half_guard'),
+     ('8', 'half_guard'),
      ('9', 'side_control'),
      ('10', 'mount'),
      ('11', 'back'),
-     ('12',	'sweep'),
-     ('13',	'guard_pass'),
-     ('14',	'arm_bar'),
-     ('15',	'americana'),
-     ('16',	'kimura'),
-     ('17',	'rear_naked'),
-     ('18',	'front_collar'),
-     ('19',	'triangle'),
-     ('20',	'arm_triangle'),
-     ('21',	'guillotine'),
-     ('22',	'other');
+     ('12', 'sweep'),
+     ('13', 'guard_pass'),
+     ('14', 'arm_bar'),
+     ('15', 'americana'),
+     ('16', 'kimura'),
+     ('17', 'rear_naked'),
+     ('18', 'front_collar'),
+     ('19', 'triangle'),
+     ('20', 'arm_triangle'),
+     ('21', 'guillotine'),
+     ('22', 'other');
     
+   	
+   
+ 
