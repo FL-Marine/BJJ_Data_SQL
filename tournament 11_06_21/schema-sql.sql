@@ -24,10 +24,10 @@ VALUES
     	('nogi');
     
 CREATE TABLE moves (
-   "move_id" INTEGER,
-   "move_name" VARCHAR(50),
-  "category_id" INTEGER,
-  "category_name" VARCHAR(50)
+  	"move_id" INTEGER,
+   	"move_name" VARCHAR(50),
+  	"category_id" INTEGER,
+  	"category_name" VARCHAR(50)
   );
     
 INSERT INTO moves 
