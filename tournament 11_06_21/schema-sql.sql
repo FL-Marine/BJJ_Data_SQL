@@ -37,7 +37,7 @@ VALUES
      ('2', 'single leg', '2', 'position'),
      ('3', 'double leg', '3', 'transition'),
      ('4', 'arm drag', '4', 'submission arm'),
-  	 ('5', 'trip', '5', 'choke'),
+  	  ('5', 'trip', '5', 'choke'),
      ('6', 'lateral throw', null, ''),
      ('7', 'guard', null, ''),
      ('8', 'half guard', null, ''),
@@ -69,8 +69,8 @@ CREATE TABLE match_results (
  ("points_scored", "points_given_up", "results", "match_id")
  VALUES
  	('36', '11', 'W', '1'),
-    (null, null, 'W', '2'),
-    (null, null, 'W', '3'),
-   	(null, null, 'W', '4'),
-   (null, null, 'L', '5');
+  (null, null, 'W', '2'),
+  (null, null, 'W', '3'),
+  (null, null, 'W', '4'),
+  (null, null, 'L', '5');
  
