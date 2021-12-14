@@ -21,7 +21,7 @@ INSERT INTO  match_style
  	("match_style")
 VALUES
    	('gi'),
-    ('nogi');
+    	('nogi');
     
 CREATE TABLE moves (
    "move_id" INTEGER,
@@ -39,22 +39,22 @@ VALUES
     	('4', 'arm drag', '4', 'submission arm'),
 	('5', 'trip', '5', 'choke'),
     	('6', 'lateral throw', null, ''),
-     ('7', 'guard', null, ''),
-     ('8', 'half guard', null, ''),
-     ('9', 'side control', null, ''),
-     ('10', 'mount', null, ''),
-     ('11', 'back', null, ''),
-     ('12', 'sweep', null, ''),
-     ('13', 'guard pass', null, ''),
-     ('14', 'arm bar', null, ''),
-     ('15', 'americana', null, ''),
-     ('16', 'kimura', null, ''),
-     ('17', 'rear naked', null, ''),
-     ('18', 'front collar', null, ''),
-     ('19', 'triangle', null, ''),
-     ('20', 'arm_triangle', null, ''),
-     ('21', 'guillotine', null, ''),
-     ('22', 'other', null, '');
+     	('7', 'guard', null, ''),
+     	('8', 'half guard', null, ''),
+     	('9', 'side control', null, ''),
+     	('10', 'mount', null, ''),
+     	('11', 'back', null, ''),
+     	('12', 'sweep', null, ''),
+     	('13', 'guard pass', null, ''),
+     	('14', 'arm bar', null, ''),
+     	('15', 'americana', null, ''),
+    	 ('16', 'kimura', null, ''),
+     	('17', 'rear naked', null, ''),
+     	('18', 'front collar', null, ''),
+     	('19', 'triangle', null, ''),
+     	('20', 'arm_triangle', null, ''),
+     	('21', 'guillotine', null, ''),
+     	('22', 'other', null, '');
      
 
 
@@ -69,8 +69,8 @@ CREATE TABLE match_results (
  ("points_scored", "points_given_up", "results", "match_id")
  VALUES
  	('36', '11', 'W', '1'),
- (null, null, 'W', '2'),
- (null, null, 'W', '3'),
- (null, null, 'W', '4'),
- (null, null, 'L', '5');
+ 	(null, null, 'W', '2'),
+ 	(null, null, 'W', '3'),
+ 	(null, null, 'W', '4'),
+ 	(null, null, 'L', '5');
  
