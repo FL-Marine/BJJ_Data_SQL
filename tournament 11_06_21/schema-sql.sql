@@ -33,12 +33,12 @@ CREATE TABLE moves (
 INSERT INTO moves 
     ("move_id", "move_name",  "category_id", "category_name")
 VALUES
-     ('1', 'guard pull', '1', 'takedown'),
-     ('2', 'single leg', '2', 'position'),
-     ('3', 'double leg', '3', 'transition'),
-     ('4', 'arm drag', '4', 'submission arm'),
+	('1', 'guard pull', '1', 'takedown'),
+	('2', 'single leg', '2', 'position'),
+    	('3', 'double leg', '3', 'transition'),
+    	('4', 'arm drag', '4', 'submission arm'),
 	('5', 'trip', '5', 'choke'),
-     ('6', 'lateral throw', null, ''),
+    	('6', 'lateral throw', null, ''),
      ('7', 'guard', null, ''),
      ('8', 'half guard', null, ''),
      ('9', 'side control', null, ''),
