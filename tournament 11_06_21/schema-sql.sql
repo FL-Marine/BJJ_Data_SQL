@@ -48,7 +48,7 @@ VALUES
      	('13', 'guard pass', null, ''),
      	('14', 'arm bar', null, ''),
      	('15', 'americana', null, ''),
-    	 ('16', 'kimura', null, ''),
+    	('16', 'kimura', null, ''),
      	('17', 'rear naked', null, ''),
      	('18', 'front collar', null, ''),
      	('19', 'triangle', null, ''),
