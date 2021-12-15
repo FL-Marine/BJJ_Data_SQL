@@ -56,21 +56,37 @@ VALUES
      	('21', 'guillotine', null, ''),
      	('22', 'other', null, '');
      
-
-
 CREATE TABLE match_results (
   "points_scored" INTEGER,
   "points_given_up" INTEGER,
   "results" VARCHAR(2),
-  "match_id" INTEGER
+  "match_id" INTEGER,
+  "move_id" INTEGER
  );
  
  INSERT INTO match_results
- ("points_scored", "points_given_up", "results", "match_id")
+ ("points_scored", "points_given_up", "results", "match_id", "move_id")
  VALUES
- 	('36', '11', 'W', '1'),
- 	(null, null, 'W', '2'),
- 	(null, null, 'W', '3'),
- 	(null, null, 'W', '4'),
- 	(null, null, 'L', '5');
+    ('36', '11', 'W', '1', '1'),
+    (null, null, 'W', '2', '2'),
+    (null, null, 'W', '3', '3'),
+    (null, null, 'W', '4', '4'),
+    (null, null, 'L', '5', '5'),
+    (null, null, '', null, '6'),
+    (null, null, '', null, '7'),
+    (null, null, '', null, '8'),
+    (null, null, '', null, '9'),
+    (null, null, '', null, '10'),
+    (null, null, '', null, '11'),
+    (null, null, '', null, '12'),
+    (null, null, '', null, '13'),
+    (null, null, '', null, '14'),
+    (null, null, '', null, '15'),
+    (null, null, '', null, '16'),
+    (null, null, '', null, '17'),
+    (null, null, '', null, '18'),
+    (null, null, '', null, '19'),
+    (null, null, '', null, '20'),
+    (null, null, '', null, '21'),
+    (null, null, '', null, '22');
  
