@@ -10,7 +10,7 @@
 | 7                       | 2                     |
 
 ---
-**Query #2**
+** Query #2 **
 
     Select *
     from bjj_tournament.moves
