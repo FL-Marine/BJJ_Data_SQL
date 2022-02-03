@@ -13,6 +13,7 @@ WHERE points_scored IS NOT NULL;
 **Win/Loss result**
 SELECT results
 FROM bjj_tournament.match_results;
+-- Total of 5 matches, lost 1.
 
 | results |
 | ------- |
