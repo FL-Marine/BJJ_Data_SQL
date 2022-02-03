@@ -56,11 +56,11 @@ VALUES
      ('21', 'guillotine', 'c', 'choke');
    
 CREATE TABLE match_results (
-  "points_scored" INTEGER,
-  "points_given_up" INTEGER,
-  "results" VARCHAR(2),
-  "match_id" VARCHAR(2),
-  "move_id" VARCHAR(2)
+    "points_scored" INTEGER,
+    "points_given_up" INTEGER,
+    "results" VARCHAR(2),
+    "match_id" VARCHAR(2),
+    "move_id" VARCHAR(2)
  );
  
  INSERT INTO match_results
@@ -88,7 +88,7 @@ CREATE TABLE match_results (
         (null, null, '', null, '20'),
         (null, null, '', null, '21');
     
-    CREATE TABLE match_points (
+CREATE TABLE match_points (
     "move_name" VARCHAR(50),
     "move_id" VARCHAR(2),
     "offense_attempted" INTEGER,
@@ -111,18 +111,18 @@ CREATE TABLE match_results (
   ('guard', '7', '0','1', '0', '0', 'M2'),
   ('side control', '9', '0', '3', '0', '0', 'M2'),
   ('mount', '10', '0', '2', '0','0','M2'),
-  ('sweep',	'12', '0',	'0', '1', '1', 'M2'),
+  ('sweep', '12', '0', '0', '1', '1', 'M2'),
   ('guard pass', '13', '3', '2', '0', '0', 'M2'),
-  ('arm bar', '14',	'1', '0', '0', '1', 'M2'),
+  ('arm bar', '14', '1', '0', '0', '1', 'M2'),
   ('triangle', '19', '0', '0', '0', '1', 'M2'),
   ('double leg', '3', '0', '0', '0', '1', 'M3'),
-  ('lateral throw',	'6', '0', '1', '0', '0', 'M3'),
-  ('guard',	'7', '0', '1', '0',	'2', 'M3'),
+  ('lateral throw', '6', '0', '1', '0', '0', 'M3'),
+  ('guard', '7', '0', '1', '0',	'2', 'M3'),
   ('half guard', '8', '0', '1',	'0', '0', 'M3'),
   ('side control', '9',	'0', '0', '1', '0', 'M3'),
-  ('mount',	'10', '0', '2','0','2','M3'),
+  ('mount', '10', '0', '2','0','2','M3'),
   ('back', '11', '0', '1', '0', '0', 'M3'),
-  ('sweep',	'12', '0', '0', '2', '1', 'M3'),
+  ('sweep', '12', '0', '0', '2', '1', 'M3'),
   ('guard pass', '13', '1', '1', '0', '0', 'M3'),
   ('rear naked', '17', '1', '0', '0','0', 'M3'),
   ('triangle', '19', '2', '0', '0', '0', 'M3'),
