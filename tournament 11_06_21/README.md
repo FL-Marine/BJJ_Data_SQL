@@ -24,3 +24,6 @@ Some analysis after watching the videos.
 <p align="center">
 <img src="https://user-images.githubusercontent.com/74512335/141808477-36e917b9-cd8f-4469-b437-f62551d29855.png") />
  </p> 
+
+## Link to ERD - https://dbdiagram.io/d/620f7f35485e433543d7f19b
+![BJJ Tournament 11_6_21](https://user-images.githubusercontent.com/74512335/154676283-a9b54645-36a1-4156-a056-41e3562d294a.png)
