@@ -37,4 +37,5 @@ ALTER TABLE "match_results" ADD FOREIGN KEY ("match_id") REFERENCES "match_point
 
 ALTER TABLE "match_points" ADD FOREIGN KEY ("move_id") REFERENCES "moves" ("move_id");
 
+Link to ERD - https://dbdiagram.io/d/620f7f35485e433543d7f19b
 
