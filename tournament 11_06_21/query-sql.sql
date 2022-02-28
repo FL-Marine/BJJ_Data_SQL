@@ -14,6 +14,7 @@ FROM bjj_tournament.match_style;
 | gi          |
 | nogi        |
 
+---------------------------------------------------
 
 **Offensive & Defensive points per match**
 SELECT points_scored / 5 AS points_scored_per_match, points_given_up / 5 AS points_lost_per_match
@@ -26,7 +27,7 @@ WHERE points_scored IS NOT NULL;
 | ----------------------- | --------------------- |
 | 7                       | 2                     |
 
----
+---------------------------------------------------
 **Win/Loss result**
 SELECT results
 FROM bjj_tournament.match_results;
@@ -40,4 +41,5 @@ FROM bjj_tournament.match_results;
 | W       |
 | L       |
 |         |
----
+---------------------------------------------------
+
