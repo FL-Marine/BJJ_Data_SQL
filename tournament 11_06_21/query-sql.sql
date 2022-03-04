@@ -43,3 +43,87 @@ FROM bjj_tournament.match_results;
 |         |
 ---------------------------------------------------
 
+**Moves**
+ SELECT * 
+ FROM bjj_tournament.moves;
+
+| move_id | move_name     | category_id | category_name  |
+| ------- | ------------- | ----------- | -------------- |
+| 1       | guard pull    | td          | takedown       |
+| 2       | single leg    | td          | takedown       |
+| 3       | double leg    | td          | takedown       |
+| 4       | arm drag      | td          | takedown       |
+| 5       | trip          | td          | takedown       |
+| 6       | lateral throw | td          | takedown       |
+| 7       | guard         | pos         | position       |
+| 8       | half guard    | pos         | position       |
+| 9       | side control  | pos         | position       |
+| 10      | mount         | pos         | position       |
+| 11      | back          | pos         | position       |
+| 12      | sweep         | trn         | transition     |
+| 13      | guard pass    | trn         | transition     |
+| 14      | arm bar       | sa          | submission arm |
+| 15      | americana     | sa          | submission arm |
+| 16      | kimura        | sa          | submission arm |
+| 17      | rear naked    | c           | choke          |
+| 18      | front collar  | c           | choke          |
+| 19      | triangle      | c           | choke          |
+| 20      | arm_triangle  | c           | choke          |
+| 21      | guillotine    | c           | choke          |
+--------------------------------------------------
+
+---
+**Match_Points**
+SELECT * 
+FROM bjj_tournament.match_points;
+
+| move_name     | move_id | offense_attempted | offense_succeeded | defense_attempted | defense_succeeded | match_id |
+| ------------- | ------- | ----------------- | ----------------- | ----------------- | ----------------- | -------- |
+| arm drag      | 4       | 3                 | 0                 | 0                 | 3                 | M1       |
+| trip          | 5       | 0                 | 0                 | 0                 | 5                 | M1       |
+| lateral throw | 6       | 1                 | 0                 | 0                 | 0                 | M1       |
+| guard         | 7       | 1                 | 0                 | 0                 | 0                 | M1       |
+| single leg    | 2       | 0                 | 0                 | 0                 | 1                 | M1       |
+| trip          | 5       | 0                 | 0                 | 0                 | 2                 | M2       |
+| lateral throw | 6       | 0                 | 1                 | 0                 | 0                 | M2       |
+| guard         | 7       | 0                 | 1                 | 0                 | 0                 | M2       |
+| side control  | 9       | 0                 | 3                 | 0                 | 0                 | M2       |
+| mount         | 10      | 0                 | 2                 | 0                 | 0                 | M2       |
+| sweep         | 12      | 0                 | 0                 | 1                 | 1                 | M2       |
+| guard pass    | 13      | 3                 | 2                 | 0                 | 0                 | M2       |
+| arm bar       | 14      | 1                 | 0                 | 0                 | 1                 | M2       |
+| triangle      | 19      | 0                 | 0                 | 0                 | 1                 | M2       |
+| double leg    | 3       | 0                 | 0                 | 0                 | 1                 | M3       |
+| lateral throw | 6       | 0                 | 1                 | 0                 | 0                 | M3       |
+| guard         | 7       | 0                 | 1                 | 0                 | 2                 | M3       |
+| half guard    | 8       | 0                 | 1                 | 0                 | 0                 | M3       |
+| side control  | 9       | 0                 | 0                 | 1                 | 0                 | M3       |
+| mount         | 10      | 0                 | 2                 | 0                 | 2                 | M3       |
+| back          | 11      | 0                 | 1                 | 0                 | 0                 | M3       |
+| sweep         | 12      | 0                 | 0                 | 2                 | 1                 | M3       |
+| guard pass    | 13      | 1                 | 1                 | 0                 | 0                 | M3       |
+| rear naked    | 17      | 1                 | 0                 | 0                 | 0                 | M3       |
+| triangle      | 19      | 2                 | 0                 | 0                 | 0                 | M3       |
+| guard pull    | 1       | 0                 | 0                 | 1                 | 0                 | M4       |
+| single leg    | 2       | 0                 | 0                 | 0                 | 0                 | M4       |
+| double leg    | 3       | 1                 | 0                 | 0                 | 0                 | M4       |
+| trip          | 5       | 1                 | 0                 | 0                 | 0                 | M4       |
+| guard         | 7       | 0                 | 0                 | 1                 | 0                 | M4       |
+| half guard    | 8       | 0                 | 2                 | 1                 | 0                 | M4       |
+| back          | 11      | 0                 | 0                 | 0                 | 2                 | M4       |
+| sweep         | 12      | 0                 | 0                 | 1                 | 1                 | M4       |
+| guard pass    | 13      | 3                 | 0                 | 0                 | 0                 | M4       |
+| arm bar       | 14      | 0                 | 0                 | 1                 | 0                 | M4       |
+| kimura        | 16      | 0                 | 0                 | 1                 | 1                 | M4       |
+| single leg    | 2       | 0                 | 0                 | 0                 | 3                 | M5       |
+| double leg    | 3       | 0                 | 0                 | 0                 | 3                 | M5       |
+| lateral throw | 6       | 0                 | 5                 | 0                 | 0                 | M5       |
+| guard         | 7       | 0                 | 4                 | 0                 | 0                 | M5       |
+| half guard    | 8       | 0                 | 2                 | 0                 | 0                 | M5       |
+| side control  | 9       | 0                 | 2                 | 0                 | 0                 | M5       |
+| sweep         | 12      | 0                 | 2                 | 0                 | 2                 | M5       |
+| guard pass    | 13      | 5                 | 0                 | 0                 | 0                 | M5       |
+| triangle      | 19      | 0                 | 0                 | 0                 | 1                 | M5       |
+
+--------------------------------------------------
+
