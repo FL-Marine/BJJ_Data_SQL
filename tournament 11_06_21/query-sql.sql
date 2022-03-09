@@ -44,8 +44,8 @@ FROM bjj_tournament.match_results;
 ---------------------------------------------------
 
 **Moves**
- SELECT * 
- FROM bjj_tournament.moves;
+SELECT * 
+FROM bjj_tournament.moves;
 
 | move_id | move_name     | category_id | category_name  |
 | ------- | ------------- | ----------- | -------------- |
@@ -72,7 +72,6 @@ FROM bjj_tournament.match_results;
 | 21      | guillotine    | c           | choke          |
 --------------------------------------------------
 
----
 **Match_Points**
 SELECT * 
 FROM bjj_tournament.match_points;
@@ -126,4 +125,41 @@ FROM bjj_tournament.match_points;
 | triangle      | 19      | 0                 | 0                 | 0                 | 1                 | M5       |
 
 --------------------------------------------------
+
+**Offense Attempts**
+SELECT move_name, SUM(offense_attempted) AS offensive_attempts
+FROM bjj_tournament.match_points
+WHERE offense_attempted > 0
+GROUP BY move_name;
+
+| move_name     | offensive_attempts |
+| ------------- | ------------------ |
+| triangle      | 2                  |
+| arm bar       | 1                  |
+| arm drag      | 3                  |
+| guard pass    | 12                 |
+| guard         | 1                  |
+| double leg    | 1                  |
+| rear naked    | 1                  |
+| trip          | 1                  |
+| lateral throw | 1                  |
+---------------------------------------------------
+
+**Offense Success**
+SELECT move_name, SUM(offense_succeeded) AS offensive_successes
+FROM bjj_tournament.match_points
+WHERE offense_succeeded > 0
+GROUP BY move_name;
+
+| move_name     | offensive_successes |
+| ------------- | ------------------- |
+| mount         | 4                   |
+| half guard    | 5                   |
+| guard pass    | 3                   |
+| side control  | 5                   |
+| guard         | 6                   |
+| back          | 1                   |
+| sweep         | 2                   |
+| lateral throw | 7                   |
+---------------------------------------------------
 
