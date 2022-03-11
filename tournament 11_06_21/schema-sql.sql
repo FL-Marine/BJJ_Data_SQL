@@ -147,3 +147,22 @@ CREATE TABLE match_points (
   ('guard pass', '13', '5', '0', '0', '0', 'M5'),
   ('triangle', '19', '0', '0', '0', '1', 'M5');
   
+   CREATE TABLE points_scoring_system (
+   	"move_score" INTEGER,
+   	 "move_name" VARCHAR(50),
+   	 "category_name" VARCHAR(50)
+    );
+ 
+ INSERT INTO points_scoring_system
+ ("move_score", "move_name", category_name)
+ VALUES
+ 	('2', 'guard pull', 'takedown'),
+	('2', 'single leg', 'takedown'),
+	('2', 'double leg', 'takedown'),
+	('2', 'arm drag', 'takedown'),
+	('2',  'trip', 'takedown'),
+	('2', 'lateral throw', 'takedown'),
+	('4', 'mount', 'position'),
+	('4', 'back', 'position'),
+	('3', 'sweep', 'transition'),
+	('3', 'guard pass', 'transition');
