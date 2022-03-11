@@ -1,4 +1,5 @@
 **Tournament Facts**
+
 SELECT *
 FROM bjj_tournament.tournament_facts;
 
@@ -17,6 +18,7 @@ FROM bjj_tournament.match_style;
 ---------------------------------------------------
 
 **Offensive & Defensive points per match**
+
 SELECT 
   points_scored / 5 AS points_scored_per_match, 
   points_given_up / 5 AS points_lost_per_match 
@@ -34,6 +36,7 @@ WHERE
 
 ---------------------------------------------------
 **Win/Loss result**
+
 SELECT 
   results 
 FROM 
@@ -52,6 +55,7 @@ FROM
 ---------------------------------------------------
 
 **Moves**
+
 SELECT * 
 FROM bjj_tournament.moves;
 
@@ -82,6 +86,7 @@ FROM bjj_tournament.moves;
 --------------------------------------------------
 
 **Match_Points**
+
 SELECT * 
 FROM bjj_tournament.match_points;
 
@@ -165,7 +170,6 @@ WHERE
   offense_attempted > 0 
 GROUP BY 
   move_name;
-
 
 | move_name     | offensive_attempts |
 | ------------- | ------------------ |
