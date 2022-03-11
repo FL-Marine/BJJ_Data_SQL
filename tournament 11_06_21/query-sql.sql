@@ -125,6 +125,40 @@ FROM bjj_tournament.match_points;
 | triangle      | 19      | 0                 | 0                 | 0                 | 1                 | M5       |
 
 --------------------------------------------------
+**Points Scoring System**
+
+    SELECT *
+    FROM bjj_tournament.points_scoring_system;
+
+| move_score | move_name     | category_name |
+| ---------- | ------------- | ------------- |
+| 2          | guard pull    | takedown      |
+| 2          | single leg    | takedown      |
+| 2          | double leg    | takedown      |
+| 2          | arm drag      | takedown      |
+| 2          | trip          | takedown      |
+| 2          | lateral throw | takedown      |
+| 4          | mount         | position      |
+| 4          | back          | position      |
+| 3          | sweep         | transition    |
+| 3          | guard pass    | transition    |
+**Query #1**
+
+    SELECT *
+    FROM bjj_tournament.points_scoring_system;
+
+| move_score | move_name     | category_name |
+| ---------- | ------------- | ------------- |
+| 2          | guard pull    | takedown      |
+| 2          | single leg    | takedown      |
+| 2          | double leg    | takedown      |
+| 2          | arm drag      | takedown      |
+| 2          | trip          | takedown      |
+| 2          | lateral throw | takedown      |
+| 4          | mount         | position      |
+| 4          | back          | position      |
+| 3          | sweep         | transition    |
+| 3          | guard pass    | transition    |
 
 **Offense Attempts**
 SELECT move_name, SUM(offense_attempted) AS offensive_attempts
@@ -162,4 +196,18 @@ GROUP BY move_name;
 | sweep         | 2                   |
 | lateral throw | 7                   |
 ---------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
