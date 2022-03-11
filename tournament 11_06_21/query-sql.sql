@@ -17,9 +17,14 @@ FROM bjj_tournament.match_style;
 ---------------------------------------------------
 
 **Offensive & Defensive points per match**
-SELECT points_scored / 5 AS points_scored_per_match, points_given_up / 5 AS points_lost_per_match
-FROM bjj_tournament.match_results
-WHERE points_scored IS NOT NULL;
+SELECT 
+  points_scored / 5 AS points_scored_per_match, 
+  points_given_up / 5 AS points_lost_per_match 
+FROM 
+  bjj_tournament.match_results 
+WHERE 
+  points_scored IS NOT NULL;
+
 -- Scored an avg of 7 points per match
 -- Gave up an avg of just 2 points per match 
 
@@ -29,9 +34,11 @@ WHERE points_scored IS NOT NULL;
 
 ---------------------------------------------------
 **Win/Loss result**
-SELECT results
-FROM bjj_tournament.match_results;
--- Total of 5 matches, lost 1.
+SELECT 
+  results 
+FROM 
+  bjj_tournament.match_results;
+-- Total of 5 matches, lost 1.--
 
 | results |
 | ------- |
@@ -41,6 +48,7 @@ FROM bjj_tournament.match_results;
 | W       |
 | L       |
 |         |
+
 ---------------------------------------------------
 
 **Moves**
@@ -70,6 +78,7 @@ FROM bjj_tournament.moves;
 | 19      | triangle      | c           | choke          |
 | 20      | arm_triangle  | c           | choke          |
 | 21      | guillotine    | c           | choke          |
+
 --------------------------------------------------
 
 **Match_Points**
@@ -125,6 +134,7 @@ FROM bjj_tournament.match_points;
 | triangle      | 19      | 0                 | 0                 | 0                 | 1                 | M5       |
 
 --------------------------------------------------
+
 **Points Scoring System**
 
     SELECT *
@@ -142,29 +152,20 @@ FROM bjj_tournament.match_points;
 | 4          | back          | position      |
 | 3          | sweep         | transition    |
 | 3          | guard pass    | transition    |
-**Query #1**
 
-    SELECT *
-    FROM bjj_tournament.points_scoring_system;
-
-| move_score | move_name     | category_name |
-| ---------- | ------------- | ------------- |
-| 2          | guard pull    | takedown      |
-| 2          | single leg    | takedown      |
-| 2          | double leg    | takedown      |
-| 2          | arm drag      | takedown      |
-| 2          | trip          | takedown      |
-| 2          | lateral throw | takedown      |
-| 4          | mount         | position      |
-| 4          | back          | position      |
-| 3          | sweep         | transition    |
-| 3          | guard pass    | transition    |
+--------------------------------------------------
 
 **Offense Attempts**
-SELECT move_name, SUM(offense_attempted) AS offensive_attempts
-FROM bjj_tournament.match_points
-WHERE offense_attempted > 0
-GROUP BY move_name;
+SELECT 
+  move_name, 
+  SUM(offense_attempted) AS offensive_attempts 
+FROM 
+  bjj_tournament.match_points 
+WHERE 
+  offense_attempted > 0 
+GROUP BY 
+  move_name;
+
 
 | move_name     | offensive_attempts |
 | ------------- | ------------------ |
@@ -180,10 +181,15 @@ GROUP BY move_name;
 ---------------------------------------------------
 
 **Offense Success**
-SELECT move_name, SUM(offense_succeeded) AS offensive_successes
-FROM bjj_tournament.match_points
-WHERE offense_succeeded > 0
-GROUP BY move_name;
+SELECT 
+  move_name, 
+  SUM(offense_succeeded) AS offensive_successes 
+FROM 
+  bjj_tournament.match_points 
+WHERE 
+  offense_succeeded > 0 
+GROUP BY 
+  move_name;
 
 | move_name     | offensive_successes |
 | ------------- | ------------------- |
@@ -195,19 +201,153 @@ GROUP BY move_name;
 | back          | 1                   |
 | sweep         | 2                   |
 | lateral throw | 7                   |
+
 ---------------------------------------------------
 
+**Offense points scored per move and match**
 
+    SELECT match_points.move_name, 
+    pss.category_name, 
+    pss.move_score, 
+    SUM(offense_succeeded) AS offensive_successes, 
+    SUM(offense_succeeded) * move_score AS points_scored, 
+    match_points.match_id 
+    FROM 
+      bjj_tournament.match_points 
+      INNER JOIN bjj_tournament.points_scoring_system AS pss 
+      ON match_points.move_name = pss.move_name 
+    WHERE 
+      offense_succeeded > 0 
+    GROUP BY 
+      match_points.move_name, 
+      pss.category_name, 
+      pss.move_score, 
+      match_points.match_id 
+    ORDER BY 
+      match_points.match_id;
 
+| move_name     | category_name | move_score | offensive_successes | points_scored | match_id |
+| ------------- | ------------- | ---------- | ------------------- | ------------- | -------- |
+| guard pass    | transition    | 3          | 2                   | 6             | M2       |
+| lateral throw | takedown      | 2          | 1                   | 2             | M2       |
+| mount         | position      | 4          | 2                   | 8             | M2       |
+| back          | position      | 4          | 1                   | 4             | M3       |
+| guard pass    | transition    | 3          | 1                   | 3             | M3       |
+| lateral throw | takedown      | 2          | 1                   | 2             | M3       |
+| mount         | position      | 4          | 2                   | 8             | M3       |
+| lateral throw | takedown      | 2          | 5                   | 10            | M5       |
+| sweep         | transition    | 3          | 2                   | 6             | M5       |
 
+---------------------------------------------------
 
+**Deffense points prevented per move and match***
 
+    SELECT 
+      match_points.move_name, 
+      pss.category_name, 
+      pss.move_score, 
+      SUM(defense_succeeded) AS defense_successes, 
+      SUM(defense_succeeded) * move_score AS points_defended, 
+      match_points.match_id 
+    FROM 
+      bjj_tournament.match_points 
+      INNER JOIN bjj_tournament.points_scoring_system AS pss 
+      ON match_points.move_name = pss.move_name 
+    WHERE 
+      defense_succeeded > 0 
+    GROUP BY 
+      match_points.move_name, 
+      pss.category_name, 
+      pss.move_score, 
+      match_points.match_id 
+    ORDER BY 
+      match_points.match_id;
 
+| move_name  | category_name | move_score | defense_successes | points_defended | match_id |
+| ---------- | ------------- | ---------- | ----------------- | --------------- | -------- |
+| arm drag   | takedown      | 2          | 3                 | 6               | M1       |
+| single leg | takedown      | 2          | 1                 | 2               | M1       |
+| trip       | takedown      | 2          | 5                 | 10              | M1       |
+| sweep      | transition    | 3          | 1                 | 3               | M2       |
+| trip       | takedown      | 2          | 2                 | 4               | M2       |
+| double leg | takedown      | 2          | 1                 | 2               | M3       |
+| mount      | position      | 4          | 2                 | 8               | M3       |
+| sweep      | transition    | 3          | 1                 | 3               | M3       |
+| back       | position      | 4          | 2                 | 8               | M4       |
+| sweep      | transition    | 3          | 1                 | 3               | M4       |
+| double leg | takedown      | 2          | 3                 | 6               | M5       |
+| single leg | takedown      | 2          | 3                 | 6               | M5       |
+| sweep      | transition    | 3          | 2                 | 6               | M5       |
 
+---------------------------------------------------
 
+**Offense points attempted per move and match***
 
+    SELECT 
+      match_points.move_name, 
+      pss.category_name, 
+      pss.move_score, 
+      SUM(offense_attempted) AS offensive_attempts, 
+      SUM(offense_attempted) * move_score AS points_attempt, 
+      match_points.match_id 
+    FROM 
+      bjj_tournament.match_points 
+      INNER JOIN bjj_tournament.points_scoring_system AS pss 
+      ON match_points.move_name = pss.move_name 
+    WHERE 
+      offense_attempted > 0 
+    GROUP BY 
+      match_points.move_name, 
+      pss.category_name, 
+      pss.move_score, 
+      match_points.match_id 
+    ORDER BY 
+      match_points.match_id;
 
+| move_name     | category_name | move_score | offensive_attempts | points_attempt | match_id |
+| ------------- | ------------- | ---------- | ------------------ | -------------- | -------- |
+| arm drag      | takedown      | 2          | 3                  | 6              | M1       |
+| lateral throw | takedown      | 2          | 1                  | 2              | M1       |
+| guard pass    | transition    | 3          | 3                  | 9              | M2       |
+| guard pass    | transition    | 3          | 1                  | 3              | M3       |
+| double leg    | takedown      | 2          | 1                  | 2              | M4       |
+| guard pass    | transition    | 3          | 3                  | 9              | M4       |
+| trip          | takedown      | 2          | 1                  | 2              | M4       |
+| guard pass    | transition    | 3          | 5                  | 15             | M5       |
 
+---------------------------------------------------
 
+**Defensive points lost per move and match**
 
+    SELECT 
+      match_points.move_name, 
+      pss.category_name, 
+      pss.move_score, 
+      SUM(defense_attempted) AS defense_attempts, 
+      SUM(defense_attempted) * move_score AS points_lost, 
+      match_points.match_id 
+    FROM 
+      bjj_tournament.match_points 
+      INNER JOIN bjj_tournament.points_scoring_system AS pss 
+      ON match_points.move_name = pss.move_name 
+    WHERE 
+      defense_attempted > 0 
+    GROUP BY 
+      match_points.move_name, 
+      pss.category_name, 
+      pss.move_score, 
+      match_points.match_id 
+    ORDER BY 
+      match_points.match_id;
 
+| move_name  | category_name | move_score | defense_attempts | points_lost | match_id |
+| ---------- | ------------- | ---------- | ---------------- | ----------- | -------- |
+| sweep      | transition    | 3          | 1                | 3           | M2       |
+| sweep      | transition    | 3          | 2                | 6           | M3       |
+| guard pull | takedown      | 2          | 1                | 2           | M4       |
+| sweep      | transition    | 3          | 1                | 3           | M4       |
+
+/* The previous 4 queries I wanted to display 2 things use a aggregation function and join. 
+First, I needed to create another table in my schema which I created and named points_scoring_system and then joined on move_name */
+
+---------------------------------------------------
