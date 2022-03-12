@@ -356,3 +356,70 @@ First, I needed to create another table in my schema which I created and named p
 INNER JOINe was used because there are matching values in both tables. */
 
 ---------------------------------------------------
+
+**Top offensive scoring move per match**
+
+    SELECT 
+    	move_name,
+        match_id,
+        SUM(offense_succeeded) AS top_scoring_move_per_match
+    FROM 
+    	bjj_tournament.match_points
+    GROUP BY
+    	match_id,
+      move_name
+    HAVING SUM(offense_succeeded) > 2;
+
+| move_name     | match_id | top_scoring_move_per_match |
+| ------------- | -------- | -------------------------- |
+| lateral throw | M5       | 5                          |
+| guard         | M5       | 4                          |
+| side control  | M2       | 3                          |
+
+---
+**Top offensive attempted move per match**
+
+    SELECT 
+    	move_name,
+        match_id,
+        SUM(offense_attempted) AS offensive_attempts_per_match
+    FROM 
+    	bjj_tournament.match_points
+    GROUP BY
+    	match_id,
+      move_name
+    HAVING SUM(offense_attempted) > 2;
+
+| move_name  | match_id | offensive_attempts_per_match |
+| ---------- | -------- | ---------------------------- |
+| guard pass | M2       | 3                            |
+| guard pass | M4       | 3                            |
+| guard pass | M5       | 5                            |
+| arm drag   | M1       | 3                            |
+
+---------------------------------------------------
+
+**Top successfully defended moves per match**
+
+    SELECT 
+    	move_name,
+        match_id,
+        SUM(defense_succeeded) AS top_defensive_moves_per_match
+    FROM 
+    	bjj_tournament.match_points
+    GROUP BY
+    	match_id,
+      move_name
+    HAVING SUM(defense_succeeded) > 2;
+
+| move_name  | match_id | top_defensive_moves_per_match |
+| ---------- | -------- | ----------------------------- |
+| double leg | M5       | 3                             |
+| single leg | M5       | 3                             |
+| trip       | M1       | 5                             |
+| arm drag   | M1       | 3                             |
+
+/* I wanted to show skills using the having function which specifies a search condition for a group or an aggregate returned by the GROUP BY clause. /*
+---------------------------------------------------
+
+
