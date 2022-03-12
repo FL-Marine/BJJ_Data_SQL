@@ -419,7 +419,59 @@ INNER JOINe was used because there are matching values in both tables. */
 | trip       | M1       | 5                             |
 | arm drag   | M1       | 3                             |
 
-/* I wanted to show skills using the having function which specifies a search condition for a group or an aggregate returned by the GROUP BY clause. /*
+/* I wanted to show skills using the having function which specifies a search condition for a group or an aggregate returned by the GROUP BY clause. */
+
 ---------------------------------------------------
 
+**Summary Stats Offensive Successes**
+
+    SELECT
+      ROUND(MIN(offense_succeeded), 2) AS minimum_value,
+      ROUND(MAX(offense_succeeded), 2) AS maximum_value,
+      ROUND(AVG(offense_succeeded), 2) AS mean_value,
+      ROUND(
+          CAST(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY offense_succeeded) AS NUMERIC),
+        2
+      ) AS median_value,
+      ROUND(
+        MODE() WITHIN GROUP (ORDER BY offense_succeeded),
+        2
+      ) AS mode_value,
+      ROUND(STDDEV(offense_succeeded), 2) AS standard_deviation,
+      ROUND(VARIANCE(offense_succeeded), 2) AS variance_value
+      
+      FROM bjj_tournament.match_points;
+
+| minimum_value | maximum_value | mean_value | median_value | mode_value | standard_deviation | variance_value |
+| ------------- | ------------- | ---------- | ------------ | ---------- | ------------------ | -------------- |
+| 0.00          | 5.00          | 0.73       | 0.00         | 0.00       | 1.18               | 1.38           |
+
+---------------------------------------------------
+
+**Summary Stats Defensive Successes***
+
+    SELECT
+      ROUND(MIN(defense_succeeded), 2) AS minimum_value,
+      ROUND(MAX(defense_succeeded), 2) AS maximum_value,
+      ROUND(AVG(defense_succeeded), 2) AS mean_value,
+      ROUND(
+          CAST(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY defense_succeeded) AS NUMERIC),
+        2
+      ) AS median_value,
+      ROUND(
+        MODE() WITHIN GROUP (ORDER BY defense_succeeded),
+        2
+      ) AS mode_value,
+      ROUND(STDDEV(defense_succeeded), 2) AS standard_deviation,
+      ROUND(VARIANCE(defense_succeeded), 2) AS variance_value
+      
+      FROM bjj_tournament.match_points;
+
+| minimum_value | maximum_value | mean_value | median_value | mode_value | standard_deviation | variance_value |
+| ------------- | ------------- | ---------- | ------------ | ---------- | ------------------ | -------------- |
+| 0.00          | 5.00          | 0.73       | 0.00         | 0.00       | 1.14               | 1.29           |
+
+/* The above 2 queries show summary statistics for both offensive & defensive successes. /*
+
+---------------------------------------------------
 
