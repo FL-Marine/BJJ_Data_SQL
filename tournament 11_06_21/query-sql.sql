@@ -352,6 +352,7 @@ GROUP BY
 | sweep      | transition    | 3          | 1                | 3           | M4       |
 
 /* The previous 4 queries I wanted to display 2 things use a aggregation function and join. 
-First, I needed to create another table in my schema which I created and named points_scoring_system and then joined on move_name */
+First, I needed to create another table in my schema which I created and named points_scoring_system and then joined on move_name.
+INNER JOINe was used because there are matching values in both tables. */
 
 ---------------------------------------------------
