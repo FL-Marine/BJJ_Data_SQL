@@ -486,3 +486,15 @@ WITH deduped_moves AS (
 | count |
 | ----- |
 | 21    |
+
+**Subquery Example**
+SELECT COUNT(*)
+FROM (
+  SELECT DISTINCT *
+  FROM bjj_tournament.moves
+  ) AS subquery
+  ;
+  
+| count |
+| ----- |
+| 21    |
