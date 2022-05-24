@@ -471,7 +471,7 @@ INNER JOINe was used because there are matching values in both tables. */
 | ------------- | ------------- | ---------- | ------------ | ---------- | ------------------ | -------------- |
 | 0.00          | 5.00          | 0.73       | 0.00         | 0.00       | 1.14               | 1.29           |
 
-/* The above 2 queries show summary statistics for both offensive & defensive successes. /*
+/* The above 2 queries show summary statistics for both offensive & defensive successes. */
 
 ---------------------------------------------------
 
@@ -486,5 +486,3 @@ WITH deduped_moves AS (
 | count |
 | ----- |
 | 21    |
-
-
