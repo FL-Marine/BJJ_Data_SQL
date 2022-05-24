@@ -475,3 +475,16 @@ INNER JOINe was used because there are matching values in both tables. */
 
 ---------------------------------------------------
 
+**CTE Example Query**
+WITH deduped_moves AS (
+  SELECT DISTINCT *
+  FROM bjj_tournament.moves
+ )
+ SELECT COUNT(*)
+ FROM deduped_moves;
+   
+| count |
+| ----- |
+| 21    |
+
+
