@@ -30,4 +30,4 @@ Some analysis after watching the videos.
 
 ## Covert Spreadsheet to Markdown - https://tabletomarkdown.com/convert-spreadsheet-to-markdown/
 
-## DB Fiddle Schema Link - https://www.db-fiddle.com/f/vNohyZX5FcCPyEVqKrL72j/75
+## DB Fiddle Schema Link - [https://www.db-fiddle.com/f/vNohyZX5FcCPyEVqKrL72j/75](https://www.db-fiddle.com/f/vNohyZX5FcCPyEVqKrL72j/77)
