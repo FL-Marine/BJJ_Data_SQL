@@ -34,20 +34,20 @@ WHERE
 | ----------------------- | --------------------- |
 | 7                       | 2                     |
 
--- Nick Newby interview from NuView Analytics asked if I could write this query a different way. We came up with CTE and came to same result
+-- Nick Newby tech interview from NuView Analytics on 6/23/2022 asked if I could write this query a different way. We came up with CTE and came to same result
 
-WITH match_points AS (
+ WITH match_points AS (
  	SELECT COUNT (DISTINCT match_id) AS total_day_matches, 
-    SUM(points_scored) AS points_scored, 
-    SUM( points_given_up) AS points_given_up
+    SUM(points_scored) AS points_scored_per_match, 
+    SUM( points_given_up) AS points_lost_per_match
  	FROM bjj_tournament.match_results 
     )
     SELECT
-     points_scored / total_day_matches AS points_scored, 
-    points_given_up / total_day_matches AS points_given_up
+     points_scored_per_match / total_day_matches AS points_scored_per_match, 
+    points_lost_per_match / total_day_matches AS points_lost_per_match
     FROM match_points
     
-| points_scored | points_given_up |
+| points_scored_per_match | points_lost_per_match |
 | ----------------------- | --------------------- |
 | 7                       | 2                     |
 
