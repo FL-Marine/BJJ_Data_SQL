@@ -34,6 +34,23 @@ WHERE
 | ----------------------- | --------------------- |
 | 7                       | 2                     |
 
+-- Nick Newby interview from NuView Analytics asked if I could write this query a different way. We came up with CTE and came to same result
+
+WITH match_points AS (
+ 	SELECT COUNT (DISTINCT match_id) AS total_day_matches, 
+    SUM(points_scored) AS points_scored, 
+    SUM( points_given_up) AS points_given_up
+ 	FROM bjj_tournament.match_results 
+    )
+    SELECT
+     points_scored / total_day_matches AS points_scored, 
+    points_given_up / total_day_matches AS points_given_up
+    FROM match_points
+    
+| points_scored | points_given_up |
+| ----------------------- | --------------------- |
+| 7                       | 2                     |
+
 ---------------------------------------------------
 **Win/Loss result**
 
